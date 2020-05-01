@@ -8,7 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { CoreService } from '../core.service';
 import { AchatService } from 'src/app/achat/achat.service';
 import { ServicesService } from 'src/app/user/administrator/update-del-service/services.service';
-import { MessageService } from 'src/app/ines/services/message.service';
+
 
 /* RXJS */
 import { Subscription, interval } from 'rxjs';
@@ -16,7 +16,6 @@ import { Subscription, interval } from 'rxjs';
 /* Model */
 import { Bijoux } from 'src/app/achat/models/bijoux.models';
 import { Router } from '@angular/router';
-import { ModalComponnentComponent } from 'src/app/ines/modal-componnent/modal-componnent.component';
 import { MatDialog, MatSnackBar, Sort, MatSort, MatPaginator } from '@angular/material';
 
 
@@ -56,7 +55,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
     private coreService: CoreService,
     private achatService: AchatService,
     private router: Router,
-    private messageService: MessageService,
     private snackBar: MatSnackBar,
     private injector: Injector,
   ) {
@@ -121,7 +119,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
     if (this.articleNumber > 0) {
       this.router.navigate(['/panier']);
     } else {
-      this.messageService.openModalErrorPanier();
+   //   this.messageService.openModalErrorPanier();
     }
 
   }
@@ -133,18 +131,15 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
       data => { this.bijoux = data; }
     );
     this.articleNumber = this.bijoux.length;
-    this.messageService.openModalSuccesAddPanier();
-    this.messageService.dialogRef.beforeClosed().subscribe(result => {
-      if (result === 'succes-postCharge') {
-        this.router.navigate(['/']);
-      }
-    });
+    // this.messageService.openModalSuccesAddPanier();
+    // this.messageService.dialogRef.beforeClosed().subscribe(result => {
+    //   if (result === 'succes-postCharge') {
+    //     this.router.navigate(['/']);
+    //   }
+    // });
   }
   openSnackBar() {
     // tslint:disable-next-line: no-use-before-declare
-    this.snackBar.openFromComponent(ModalComponnentComponent, {
-      duration: this.durationInSeconds * 1000,
-    });
   }
 
 }

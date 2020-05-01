@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body {
-     height: 100%;
      background: linear-gradient(0.35turn, #AF7AC5, #85C1E9, #AF7AC5);
      background-image: url('assets/fond.JPG');
      background-size: cover;
@@ -9,3 +8,7 @@ html, body {
     }
 body { margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+app-footer{
+    min-height: calc(100% - 5px);
+}

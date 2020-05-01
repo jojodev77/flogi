@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 
 /* Services */
 import { FormulaireService } from '../service/formulaire.service';
-import { MessageService } from 'src/app/ines/services/message.service';
 import { UserService } from '../service/user.service';
 
 /* Model */
@@ -23,8 +22,7 @@ export class SigninComponent implements OnInit {
   constructor(
     private formulaireService: FormulaireService,
     private userService: UserService,
-    private router: Router,
-    private messageService: MessageService
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -40,13 +38,13 @@ export class SigninComponent implements OnInit {
   controlUser() {
     const result: User = this.signinForm.getRawValue();
     if (result.name === 'admin' && result.password === 'toto') {
-      this.messageService.openModalSuccesConnexion(),
+     // this.messageService.openModalSuccesConnexion(),
         this.userService.connexionApproved();
-      const toto = result.name;
-      sessionStorage.setItem('ADMIN', toto);
-      this.router.navigate(['/administrator']);
+        const toto = result.name;
+        sessionStorage.setItem('ADMIN', toto);
+        this.router.navigate(['/administrator']);
     } else {
-      this.messageService.openModalErrorConnexion(),
+    //  this.messageService.openModalErrorConnexion(),
         this.router.navigate(['']);
     }
   }

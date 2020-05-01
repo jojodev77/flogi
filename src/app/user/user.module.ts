@@ -5,7 +5,6 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 /* module */
 import { CommonModule } from '@angular/common';
-import { InesModule } from '../ines/ines.module';
 
 /* composant */
 import { AdministatorComponent } from './administator/administator.component';
@@ -24,8 +23,7 @@ import { CreateFormulaireService } from '../user/administator/create/create-serv
     CommonModule,
     AngularMaterialModule,
     ReactiveFormsModule,
-    FormsModule,
-    InesModule
+    FormsModule
   ],
   exports: [
     SigninComponent,

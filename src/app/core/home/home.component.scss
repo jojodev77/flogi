@@ -21,7 +21,7 @@
        border-radius: 20%;
     }
     &__badge{
-        margin-left: 14%;
+        margin-left: 35px;
         margin-top: 1%;
         position: absolute;
         z-index: 1000;
@@ -29,7 +29,7 @@
 
 &__table{
     margin-left: 10%;
-    width:100%; 
+    width:89%; 
     border: 2px solid mediumvioletred;
     background: linear-gradient(0.25turn, #85C1E9, #AF7AC5, #F9E79F);
     box-shadow: 7px 6px 15px greenyellow;

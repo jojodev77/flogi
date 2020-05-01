@@ -11,8 +11,6 @@ import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
-/* Services */
-import { MessageService } from 'src/app/ines/services/message.service';
 
 const optionRequete = {
   headers: new HttpHeaders({
@@ -31,8 +29,7 @@ export class UserService {
   bijouxUrl = environment.bijouxUrl;
 
   constructor(
-    private http: HttpClient,
-    private messageService: MessageService
+    private http: HttpClient
     ) { }
 
 connexionApproved() {
@@ -53,12 +50,11 @@ this.accesRoot = true;
     this.http.post(`${this.bijouxUrl}/ajout`, data)
     .subscribe(
       res => {
-        console.log(res);
-        this.messageService.openModalSuccessAjoutBijoux();
+
       },
       err => {
         console.log('Error occured:' , err);
-        this.messageService.openModalErrorAjoutBijoux();
+
 
       }
 
@@ -86,7 +82,7 @@ this.accesRoot = true;
             return +Bijoux.id !== +id;
           });
           return this.getBijoux = filteredBijouxs;
-          this.messageService.openModalSuccesDelBijoux();
+        //  this.messageService.openModalSuccesDelBijoux();
         }),
           catchError(this.handleError));
     }

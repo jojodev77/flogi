@@ -17,7 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InformationModule } from './information/information.module';
 import { CreateFormulaireService } from './user/administator/create/create-service/create-formulaire.service';
-import { InesModule } from './ines/ines.module';
+
 
 
 @NgModule({
@@ -36,16 +36,14 @@ import { InesModule } from './ines/ines.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    InformationModule,
-    InesModule
+    InformationModule
 
   ],
   exports: [
     AngularMaterialModule,
     UserModule,
     CoreModule,
-    InformationModule,
-    InesModule
+    InformationModule
   ],
   providers: [CreateFormulaireService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],

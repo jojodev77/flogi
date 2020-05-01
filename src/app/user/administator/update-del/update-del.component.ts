@@ -6,7 +6,7 @@ import { Data } from '@angular/router';
 /* Services */
 import { ServicesService } from '../../administrator/update-del-service/services.service';
 import { UserService } from '../../service/user.service';
-import { MessageService } from 'src/app/ines/services/message.service';
+
 
 /* Model */
 import { Bijoux } from 'src/app/achat/models/bijoux.models';
@@ -25,15 +25,15 @@ export class UpdateDelComponent implements OnInit {
   updateDelForm: FormGroup;
   selectIdForm: FormGroup;
   Type = [
-    { value: 1, viewValue: 'bagues' },
-    { value: 2, viewValue: 'pendentifs' },
-    { value: 3, viewValue: 'bracelets' },
-    { value: 4, viewValue: 'boucles' },
-    { value: 5, viewValue: 'colliers' },
-    { value: 6, viewValue: 'broches' },
-    { value: 7, viewValue: 'parures' },
-    { value: 8, viewValue: 'bien-être' },
-    { value: 9, viewValue: 'Tour de cou' },
+    { value: 1, viewValue : 'Bagues' },
+    { value: 2, viewValue : 'Pendentifs' },
+    { value: 3, viewValue : 'Bracelets' },
+    { value: 4, viewValue : 'Boucles' },
+    { value: 5, viewValue : 'Colliers' },
+    { value: 6, viewValue : 'Broches' },
+    { value: 7, viewValue : 'Parures' },
+    { value: 8, viewValue : 'Bien-être' },
+    { value: 9, viewValue : 'Tour de cou' },
     { value: 10, viewValue : 'Barrettes' },
     { value: 11, viewValue : 'Clips d oreillers' },
     { value: 12, viewValue : 'Porte clefs' },
@@ -49,7 +49,6 @@ export class UpdateDelComponent implements OnInit {
   constructor(
     private updateService: ServicesService,
     private userService: UserService,
-    private messageService: MessageService,
     private fb: FormBuilder,
   ) {
   }
@@ -124,7 +123,7 @@ export class UpdateDelComponent implements OnInit {
         (res) => {
           this.getBijoux = res;
           this.success = 'Updated successfully';
-          this.messageService.openModalSuccesUpdateBijoux();
+          // this.messageService.openModalSuccesUpdateBijoux();
         },
         (err) => this.error = err
       );
@@ -138,7 +137,7 @@ export class UpdateDelComponent implements OnInit {
       .subscribe(
         (res: Bijoux[]) => {
           this.getBijoux = res;
-          this.messageService.openModalSuccesDelBijoux();
+          // this.messageService.openModalSuccesDelBijoux();
         },
         (err) => this.error = err
       );
