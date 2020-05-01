@@ -75,11 +75,12 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
 
   ngOnInit() {
     this.dataSource.sort = this.sort;
+    // tslint:disable-next-line:no-unused-expression
+    this.dataSource.paginator = this.paginator;
     this.router.navigate(['']);
     setTimeout(() => {
       this.controlNetworkData();
     }, 2000);
-    this.dataSource.paginator.firstPage();
   }
 
   ngAfterViewInit() {

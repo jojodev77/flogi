@@ -1,5 +1,5 @@
 /* import natif angular */
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 /* import module angular material */
 import { MatCardModule } from '@angular/material/card';
@@ -117,6 +117,7 @@ import {
         MatSliderModule,
         MatTooltipModule
 
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
 export class AngularMaterialModule { }
