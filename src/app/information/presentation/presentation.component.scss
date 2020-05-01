@@ -1,0 +1,36 @@
+.presentation{
+    border: 3px solid green;
+    height: 350px;
+    width: 40%;
+    background: linear-gradient(0.25turn, #85C1E9, #AF7AC5, #F9E79F);
+    margin-left: 30%;
+    overflow: scroll;
+    font-family: arial;
+    font-family: Bookman old style;
+    letter-spacing: 0.2vw;
+}
+h1{
+    text-decoration: underline;
+    font-family: sans-serif;
+    letter-spacing: 0.2 vw;
+    width: 60%;
+}
+@media screen and (max-width: 840px) {
+    .presentation{
+        border: 3px solid green;
+        height: 350px;
+        width: 97%;
+        background: linear-gradient(0.25turn, #85C1E9, #AF7AC5, #F9E79F);
+        margin-left: 2%;
+        overflow: scroll;
+        font-family: arial;
+        font-family: Bookman old style;
+        letter-spacing: 0.2vw;
+    }
+    h1{
+        text-decoration: underline;
+        font-family: sans-serif;
+        letter-spacing: 0.2 vw;
+        width: 80%;
+    }
+}

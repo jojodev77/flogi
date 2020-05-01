@@ -1,0 +1,54 @@
+<mat-card
+class="header">
+<section fxLayout="row"
+ fxLayoutAlign="start center"
+  fxFlex="96%"
+   fxFlexOffset="2%"
+   class="header__title mat-elevation-z8">
+   <h1>FLOGUI-BOUTIQUE:</h1> 
+   <h3>Vente de bijoux fait main 
+       <img src="../../../assets/cdv.jpg" class="img"></h3>
+</section>  
+<section fxLayout="row" fxLayoutAlign="start center" fxFlex="96%" fxFlexOffset="2%">
+
+    <button 
+    class="header__button mat-elevation-z8"
+    (click)="homeRouting()">
+        VITRINE
+        <mat-icon aria-hidden="false" aria-label="Example home icon">
+        visibility
+        </mat-icon>
+    </button>
+
+
+ 
+    <button
+    class="header__button mat-elevation-z8"
+    (click)="presentationRouting()">
+        PRESENTATION 
+        <mat-icon aria-hidden="false" aria-label="Example home icon">
+       star
+        </mat-icon>
+    </button>
+
+    <button
+    class="header__button mat-elevation-z8"
+    (click)="mentionsRouting()">
+        MENTIONS LEGALES 
+        <mat-icon aria-hidden="false" aria-label="Example home icon">
+       border_color
+        </mat-icon>
+    </button>
+
+    <button
+        class="header__button mat-elevation-z8"
+        (click)="signinRouting()"
+        mat-raised-button
+        matTooltip="ADMINISTRATEUR"
+        matTooltipClass="example-tooltip-red"
+        aria-label="Button that shows a red tooltip">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">
+                supervised_user_circle
+        </mat-icon>
+    </button>
+</section>

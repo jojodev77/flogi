@@ -1,0 +1,49 @@
+<mat-card
+class="panier">
+
+<h1> VOTRE PANIER</h1>
+<section class="table">
+    <table *ngFor="let tab of bijoux">
+     <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Image</th>
+                <th>Prix</th>
+            </tr>
+            <tr>
+                <td>{{tab.id}}</td>
+                <td>{{tab.type}}</td>
+                <td><img src="{{tab.image}}"></td>
+                <td>{{tab.prix}} €</td>
+            </tr>
+            
+    </table>
+</section >
+
+<section fxLayout="column" fxLayoutAlign="end end" class="information" >
+
+        <section fxLayout="row"  >
+    <span> Prix TTC: {{totalPrice}} €</span>
+    </section>
+    <section fxLayout="row" >
+    <span> Frais de port: {{pricePost}} €</span>
+</section>
+<section fxLayout="row"  >
+    <span>Prix à régler: {{priceToPayed}} €</span>
+
+
+    </section>
+    <section class="paiment">
+    <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+    
+
+    <div class="paypal">
+    <span>PAYPAL, 100% SECURISE</span>
+    <div id="paypal-checkout-btn" ></div>
+    <span>CONTACTER  FLOGUI / PAYER PAR CHEQUE / VIREMENT BANCAIRE </span>
+    <span><a HREF="mailto:flogui.boutique@orange.fr ?subject=Notre affaire
+        &body=Bonjour">flogui.boutique@orange.fr</a></span>
+    </div>
+</section>
+</section>
+</mat-card>

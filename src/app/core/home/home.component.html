@@ -1,0 +1,159 @@
+<button mat-raised-button 
+color="primary"
+matBadge="{{articleNumber}}" 
+matBadgePosition="before" 
+matBadgeColor="accent"
+class="home__badge">
+</button>
+ <span matBadge="" matBadgeOverlap="false"></span>
+<img src="assets/panier.png" 
+class="home__panier mat-elevation-z8"
+(click)="panierRouting()">
+
+
+      <mat-form-field 
+      class="home ">
+        <input matInput (keyup)="applyFilter($event.target.value)" 
+        placeholder=" RECHERCHE "
+        class="filter mat-elevation-z8">
+      </mat-form-field>
+      <section 
+      class="home__scroll mat-elevation-z8"> 
+
+      <mat-progress-spinner
+      *ngIf="run"
+      class="home__spinner"
+      [color]="color"
+      [mode]="mode"
+      [value]="value">
+      CHARGEMENT EN COURS
+  </mat-progress-spinner>
+
+
+      <table mat-table 
+      pageScroll 
+      [dataSource]="dataSource"
+       class="home__table"
+       *ngIf="dataSource != null; else tab"
+       matSort matSortActive="seqNo" matSortDirection="asc" matSortDisableClear>
+       
+      
+      <!-- acheter Column -->
+      <ng-container matColumnDef="acheter"
+      pageScroll >
+        <th mat-header-cell *matHeaderCellDef
+        class="home__acheter">
+        
+        </th>
+        <td mat-cell *matCellDef="let element"
+        class="home__acheter"> 
+        <button 
+        (click)="addPanier(element)"
+        class="home__button"
+        >AJOUTER AU PANIER</button>  
+        </td>
+      </ng-container>
+
+
+       <!-- id Column -->
+       <ng-container matColumnDef="id" 
+       pageScroll >
+         <th mat-header-cell *matHeaderCellDef mat-sort-header
+         class="home__id">
+            Id.
+           </th>
+         <td mat-cell *matCellDef="let element" 
+         class="home__id">
+          {{element.id}}
+         </td>
+       </ng-container>
+
+        <!-- image Column -->
+        <ng-container matColumnDef="image" 
+        pageScroll >
+          <th mat-header-cell *matHeaderCellDef
+          class="home__image"
+         > Image.
+         </th>
+          <td mat-cell *matCellDef="let element"
+          class="image mat-elevation-z8">
+            <img src="{{element.image}}"
+            class="home__img" >
+           </td>
+        </ng-container>
+      
+        <!-- type Column -->
+        <ng-container matColumnDef="type" >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header
+          class="home__type">
+             Type 
+            </th>
+          <td mat-cell *matCellDef="let element"
+          class="home__type">
+           {{element.type}}
+           </td>
+        </ng-container>
+      
+        <!-- prix Column -->
+        <ng-container matColumnDef="prix" 
+        >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header
+          class="home__prix">
+           Prix 
+        </th>
+          <td mat-cell *matCellDef="let element"
+          > 
+          {{element.prix}} € 
+        </td>
+        </ng-container>
+
+           <!-- prix Matériaux -->
+        <ng-container matColumnDef="materiaux">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header
+          class="home__materiaux">
+            Materiaux 
+            </th>
+          <td mat-cell *matCellDef="let element"
+          class="home__materiaux"> 
+          {{element.materiaux}},
+          {{element.materiauxdeux}},
+          {{element.materiauxtrois}} </td>
+        </ng-container>
+
+        <!-- prix information -->
+        <ng-container matColumnDef="information">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header
+          >
+              Informations
+            </th>
+          <td mat-cell *matCellDef="let element"
+          class="home__information"> 
+          {{element.information}},
+           </td>
+        </ng-container>
+
+        <!-- prix stock -->
+        <ng-container matColumnDef="stock" >
+          <th mat-header-cell *matHeaderCellDef mat-sort-header
+          class="home__stock" >
+         Stock
+            </th>
+          <td mat-cell *matCellDef="let element"
+          class="home__stock"> 
+          {{element.stock}},
+          </td>
+        </ng-container>
+      
+     
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+      </table>
+      <ng-template #tab>
+          <ng-container>
+          <span class="connexion"> Erreur de connexion internet -- Vérifier votre connexion</span>
+        </ng-container>
+         </ng-template>
+    </section>
+

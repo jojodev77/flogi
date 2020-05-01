@@ -1,0 +1,43 @@
+<mat-card
+class="administrator">
+    
+    <section fxLayout="column" fxLayoutAlign="space-around center" >
+        <section 
+            fxLayout="row" 
+            fxLayoutAlign="space-around none"
+            class="rubrique mat-elevation-z8" >
+             <h1>Bonjour Florence</h1>
+             <span>Information principal:</span>
+             <section>
+                Il y actuellement {{bijouxLength}} bijoux dans la base de donnée.
+             </section>
+             <section>
+                Nombre de visiteur ayant vue le site: 
+             </section>
+             <section>
+                Version du site: 2.0.1 / Aout 2019
+             </section>
+           
+        </section>
+
+        <section 
+            fxLayout="row" 
+            fxLayoutAlign="space-around none"
+            class="rubrique mat-elevation-z8" >
+            <h1>AJOUT D'UN BIJOUX</h1>
+            <app-create></app-create>
+        </section>
+
+        <section 
+        fxLayout="row" 
+        fxLayoutAlign="space-around none"
+        class="rubrique mat-elevation-z8" >
+        <h1>MISE A JOUR / SUPRESSION</h1>
+        <app-update-del></app-update-del>
+
+       
+    </section>
+        
+    </section>
+
+</mat-card>

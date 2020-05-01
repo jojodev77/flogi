@@ -1,0 +1,75 @@
+.header{
+    border: 1px solid green;
+    border-radius: 10%;
+    background-image: url('../../../assets/fond.JPG');
+
+ &__button{
+     text-align: center;
+     margin-left: 10%;
+     border: 1px solid green;
+     border-radius: 20%;
+     background: linear-gradient(0.25turn, #85C1E9, #AF7AC5, #F9E79F);
+     box-shadow: 7px 6px 15px greenyellow;
+     color: black;
+     padding: 1%;
+     font-family: Bookman old style;
+     font-weight: bolder;
+    margin-top: 2%;
+
+ }
+ &__button:hover {
+    color: blue;
+    
+ }
+ &__title {
+    text-align: center;
+    font-family: Bookman old style;
+    font-weight: bolder;
+    letter-spacing: 0.5vw;
+    z-index: 600;
+    border: 3px solid mediumvioletred;
+    background: linear-gradient(0.25turn, #85C1E9, #AF7AC5, #F9E79F);
+    box-shadow: 7px 6px 15px greenyellow;
+    width: 50%;
+    margin-left: 25%;
+
+ }
+ @media screen and (max-width: 1000px) {
+   img {
+      display: none;
+   }
+ }
+
+ @media screen and (max-width: 640px) {
+   &__title {
+      text-align: center;
+      font-family: Bookman old style;
+      font-weight: bolder;
+      letter-spacing: 0.5vw;
+      z-index: 600;
+      border: 3px solid mediumvioletred;
+      background: linear-gradient(0.25turn, #85C1E9, #AF7AC5, #F9E79F);
+      box-shadow: 7px 6px 15px greenyellow;
+      width: 80%;
+      margin-left: 5%;
+  
+   }
+  }
+}
+h3 {
+   font-family: sans-serif;
+   letter-spacing: 0.2vw;
+   font-weight: bolder;
+}
+.img{
+   width: 10%;
+   height: 40%;
+   position: absolute;
+   margin-top: -4%;
+   margin-left: 2%;
+}
+@media screen and (max-width: 640px) {
+  img {
+     display: none;
+  }
+ }

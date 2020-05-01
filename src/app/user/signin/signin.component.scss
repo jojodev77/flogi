@@ -1,0 +1,35 @@
+.signin{
+    border: 3px solid green;
+    height: 350px;
+    width: 40%;
+    background: linear-gradient(0.25turn, #85C1E9, #AF7AC5, #F9E79F);
+    margin-left: 30%;
+    overflow: scroll;
+
+    &__title{
+        text-align: center;
+        text-decoration: underline;
+    }
+    &__forms{
+        text-align: center;
+    }
+    &__button{
+        text-align: center;
+        background-color: orange;
+        border: 1px solid orangered;
+        border-radius: 20%;
+        font-family: fantasy;
+        font-size: 1.5vw;
+    }
+}
+@media screen and (max-width: 840px) {
+
+    .signin{
+        border: 3px solid green;
+        height: 350px;
+        width: 97%;
+        background: linear-gradient(0.25turn, #85C1E9, #AF7AC5, #F9E79F);
+        margin-left: 1%;
+        overflow: scroll;
+    }
+}

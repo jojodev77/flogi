@@ -1,0 +1,53 @@
+<div
+        mat-dialog-content
+        id="dialog-content"
+        class="dialog">
+    <div
+            id="dialog-header"
+            class="dialog__header {{ selectedModalType.class }}"
+            fxLayout="row"
+            fxLayoutAlign="center center">
+        <mat-icon
+                *ngIf="selectedModalType.class === 'success'"
+                class="dialog__header__icon dialog__header__icon-success">
+                <img src="assets/succes.PNG" class="imageError"/>
+        </mat-icon>
+        <div
+                *ngIf="selectedModalType.class === 'error' || selectedModalType.class === 'warning'"
+                class="dialog__header__icon">
+            <img src="assets/error.PNG" class="imageError"/>
+        </div>
+    </div>
+
+    <div id="dialog-body" class="dialog__body">
+        <p id="message" [innerHTML]="modalMessage"></p>
+        <div *ngIf="passedData.ventilationError" class="dialog__error__message" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <p *ngFor="let element of ventilationError" class="dialog__error" fxLayoutAlign="center center">
+                <i class="material-icons">
+                    error
+                </i> {{element }}
+            </p>
+        </div>
+        <div *ngIf="passedData.typingErrors" class="dialog__error__message" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+            <p *ngFor="let element of typingErrors" class="dialog__error" fxLayoutAlign="center center">
+                <i class="material-icons">
+                    error
+                </i> {{element }}
+            </p>
+        </div>
+    </div>
+
+</div>
+<div
+        mat-dialog-actions
+        id="dialog-action"
+        class="action">
+    <button mat-button class="btn btn-primary btn-primary-cancel action__button" (click)="annuler()" *ngIf="selectedModalType.cancel"> Annuler </button>
+    <button mat-button
+            class="btn btn-primary btn-primary-{{selectedModalType.class}} action__button"
+            (click)="quitter()">
+        {{ selectedModalType.action }}
+    </button>
+</div>
+
+

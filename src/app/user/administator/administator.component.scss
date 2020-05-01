@@ -1,0 +1,26 @@
+.administrator{
+    border: 3px solid green;
+    height: 350px;
+    width: 50%;
+    background: linear-gradient(0.25turn, #85C1E9, #AF7AC5, #F9E79F);
+    margin-left: 30%;
+    overflow: scroll;
+    text-align: center;
+    font-family: Bookman old style;
+}
+.rubrique {
+    border: 3px solid green;
+    margin-top: 5%;
+}
+@media screen and (max-width: 840px) {
+    .administrator{
+        border: 3px solid green;
+        height: 350px;
+        width: 97%;
+        background: linear-gradient(0.25turn, #85C1E9, #AF7AC5, #F9E79F);
+        margin-left: 1%;
+        overflow: scroll;
+        text-align: center;
+        font-family: Bookman old style;
+    }  
+}

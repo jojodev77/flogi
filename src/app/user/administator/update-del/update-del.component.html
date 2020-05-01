@@ -1,0 +1,147 @@
+<section>
+  <h4> Trier par id</h4>
+  <form [formGroup]="selectIdForm" (ngSubmit)="selectIdOfBijoux()">
+  <mat-form-field>
+    <mat-select formControlName="selectId"
+    >
+      <mat-option *ngFor="let food of getBijoux" [value]="food.id">
+        {{food.id}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button>Rechercher</button>
+  <button (click)="listReset()">Reset la liste</button>
+</form>
+</section>
+
+    <div id="theList">
+        <div class="list-group">
+          <div *ngFor="let item of getBijoux;let i = index;" class="list-group-item row">
+           
+            <div class="col-md-4">
+             
+              <h4>ID</h4>
+              <input type="text"
+                     [(ngModel)]="getBijoux[i].id"
+                     class="form-control"
+                     #id="ngModel"
+                     [ngClass]="{ 'is-invalid': id.touched && id.invalid }">
+            </div>
+       
+            <div class="col-md-4">
+                <h4>TYPE</h4>
+              <input type="text"
+                     [(ngModel)]="getBijoux[i].type"
+                     class="form-control"
+                     #type="ngModel"
+                     >
+            </div>
+            <div class="col-md-4">
+                <h4>forme</h4>
+              <input type="text"
+                     [(ngModel)]="getBijoux[i].forme"
+                     class="form-control"
+                     #forme="ngModel"
+                    >
+            </div>
+            <div class="col-md-4">
+                <h4>couleur</h4>
+              <input type="text"
+                     [(ngModel)]="getBijoux[i].couleur"
+                     class="form-control"
+                     #couleur="ngModel"
+                    >
+            </div>
+            <div class="col-md-4">
+                <h4>couleur2</h4>
+              <input type="text"
+                     [(ngModel)]="getBijoux[i].couleurdeux"
+                     class="form-control"
+                     #couleurdeux="ngModel"
+                     >
+            </div>
+            <div class="col-md-4">
+                <h4>couleur3</h4>
+              <input type="text"
+                     [(ngModel)]="getBijoux[i].couleurtrois"
+                     class="form-control"
+                     #couleurtrois="ngModel"
+                     >
+            </div>
+            <div class="col-md-4">
+                <h4>materiaux</h4>
+              <input type="text"
+                     [(ngModel)]="getBijoux[i].materiaux"
+                     class="form-control"
+                     #materiaux="ngModel"
+                    >
+            </div>
+            <div class="col-md-4">
+                <h4>materiaux2</h4>
+              <input type="text"
+                     [(ngModel)]="getBijoux[i].materiauxdeux"
+                     class="form-control"
+                     #materiauxdeux="ngModel"
+                     >
+            </div>
+            <div class="col-md-4">
+                <h4>materiaux3</h4>
+              <input type="text"
+                     [(ngModel)]="getBijoux[i].materiauxtrois"
+                     class="form-control"
+                     #materiauxtrois="ngModel"
+                     >
+            </div>
+            <div class="col-md-4">
+                <h4>PRIX</h4>
+              <input type="number"
+                     [(ngModel)]="getBijoux[i].prix"
+                     class="form-control"
+                     #prix="ngModel"
+                   >
+            </div>
+            <div class="col-md-4">
+                <h4>image</h4>
+              <input type="text"
+                     [(ngModel)]="getBijoux[i].image"
+                     class="form-control"
+                     #image="ngModel"
+                    >
+            </div>
+            <div class="col-md-4">
+                <h4>description</h4>
+              <input type="text"
+                     [(ngModel)]="getBijoux[i].information"
+                     class="form-control"
+                     #information="ngModel"
+           >
+            </div>
+            <div class="col-md-4">
+                <h4>stock</h4>
+              <input type="number"
+                     [(ngModel)]="getBijoux[i].stock"
+                     class="form-control"
+                     #stock="ngModel"
+                   >
+            </div>
+            <div class="col-md-4">
+               
+
+
+              <input type="button"
+                     value="Supprimez"
+                     class="btn btn-danger btn-sm"
+                     (click)="deleteBijoux(item.id)">
+      
+            </div>
+            <div class="col-md-4">
+              <input type="button"
+                     value="Mettre à jour"
+                     class="btn btn-success btn-sm"
+                     [disabled]=" prix.invalid"
+                     (click)="updateBijoux(type, forme, couleur, couleurdeux, couleurtrois, materiaux, materiauxdeux, materiauxtrois, prix, image, information, stock, item.id)">
+            </div>
+          </div>
+        </div>
+     
+      </div>

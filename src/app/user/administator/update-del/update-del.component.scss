@@ -1,0 +1,50 @@
+.create{
+    background: linear-gradient(0.25turn, #85C1E9, #AF7AC5, #F9E79F);
+    text-align: center;
+    font-family: Bookman old style;
+   
+
+    &__button{
+        font-family: ariai;
+        text-align: center;
+        background-color: orange;
+        color: red;
+    }
+}
+h1 {
+    text-align: center;
+}
+input {
+    width: 100%;
+    padding: 2px 5px;
+    margin: 2px 0;
+    border: 1px solid red;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  button, input[type=button]{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 4px 7px;
+    text-decoration: none;
+    margin: 2px 1px;
+    cursor: pointer;
+    text-align: center;
+  }
+  th, td {
+    padding: 1px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+
+  }
+  tr:hover {background-color: #f5f5f5;}
+
+  input{
+      text-align: center;
+      color: black;
+  }
+  .list-group {
+      border: 1px solid black;
+  }

@@ -1,0 +1,165 @@
+
+<form [formGroup]="createBijouxForm" (submit)="addBijoux()"  #f="ngForm" >
+<section class="create"
+  fxLayout="row"
+   fxLayoutAlign="space-between stretch">
+
+   <section 
+   class=""
+   fxLayout="row"
+   fxLayoutAlign="center center">
+            <mat-form-field>
+                <mat-label>Choix du type</mat-label>
+                <mat-select
+                formControlName="type">
+                <mat-option *ngFor="let bijoux of Type" 
+                [value]="bijoux.viewValue"
+                
+                >
+                    {{bijoux.viewValue}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                    <mat-label>Choix de la forme</mat-label>
+                    <mat-select
+                    formControlName="forme">
+                      <mat-option *ngFor="let bijoux of Forme" [value]="bijoux.viewValue">
+                        {{bijoux.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+    </section>
+
+   
+      <section 
+      class=""
+      fxLayout="row"
+      fxLayoutAlign="center center">
+
+      <section 
+      class=""
+      fxLayout="row"
+      fxLayoutAlign="center center">
+      <span>CHOIX DES MATERIAUX</span>
+      </section>
+
+
+      <mat-form-field>
+        <mat-label>Choix du premier matériaux</mat-label>
+        <mat-select
+        formControlName="materiaux">
+          <mat-option *ngFor="let bijoux of Materiaux" [value]="bijoux.viewValue">
+            {{bijoux.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Choix du second matériaux</mat-label>
+        <mat-select
+        formControlName="materiauxdeux">
+          <mat-option *ngFor="let bijoux of Materiaux" [value]="bijoux.viewValue">
+            {{bijoux.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>Choix du troisième matériaux</mat-label>
+        <mat-select
+        formControlName="materiauxtrois">
+          <mat-option *ngFor="let bijoux of Materiaux" [value]="bijoux.viewValue">
+            {{bijoux.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+</section>
+
+<section 
+class=""
+fxLayout="row"
+fxLayoutAlign="center center">
+
+<section 
+class=""
+fxLayout="row"
+fxLayoutAlign="center center">
+<span>CHOIX DES COULEURS</span>
+</section>
+
+
+      <mat-form-field>
+        <mat-label>Choix de la première couleur</mat-label>
+        <mat-select
+        formControlName="couleur">
+          <mat-option *ngFor="let bijoux of Couleur" [value]="bijoux.viewValue">
+            {{bijoux.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Choix de la seconde couleur</mat-label>
+        <mat-select
+        formControlName="couleurdeux">
+          <mat-option *ngFor="let bijoux of Couleur" [value]="bijoux.viewValue">
+            {{bijoux.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Choix de la troisième couleur</mat-label>
+        <mat-select
+        formControlName="couleurtrois">
+          <mat-option *ngFor="let bijoux of Couleur" [value]="bijoux.viewValue">
+            {{bijoux.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+</section>
+
+<section 
+class=""
+fxLayout="row"
+fxLayoutAlign="center center">
+<mat-form-field class="example-full-width">
+        <input matInput 
+         placeholder="Choix du prix"
+         type="number"
+         value="Prix"
+         formControlName="prix">
+      </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput 
+           placeholder="Choix de l'image"
+           type="text"
+           value="Image"
+           formControlName="image">
+        </mat-form-field>
+
+<mat-form-field class="example-full-width">
+        <input matInput 
+         placeholder="Description"
+         type="text"
+         value="information"
+         formControlName="information">
+      </mat-form-field>
+</section>
+
+<section 
+class="create__button"
+fxLayout="column"
+fxLayoutAlign="center center" >
+<button
+(click)="addBijoux()">
+ENREGISTRER
+</button>
+
+</section>
+
+    </section>
+</form>
