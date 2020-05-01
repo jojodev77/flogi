@@ -16,6 +16,7 @@ import { InesModule } from '../ines/ines.module';
 /* Service */
 import { MessageService } from '../ines/services/message.service';
 import { ModalComponnentComponent } from '../ines/modal-componnent/modal-componnent.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [HomeComponent, HeaderComponent, FooterComponent],
@@ -23,7 +24,8 @@ import { ModalComponnentComponent } from '../ines/modal-componnent/modal-componn
     CommonModule,
     AngularMaterialModule,
     NgxPageScrollModule,
-    InesModule
+    InesModule,
+    FlexLayoutModule
   ],
   exports: [
     HeaderComponent,

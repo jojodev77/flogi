@@ -2,10 +2,10 @@
     border: 1px solid green;
     border-radius: 10%;
     background-image: url('../../../assets/fond.JPG');
+    background-size: cover;
 
  &__button{
      text-align: center;
-     margin-left: 10%;
      border: 1px solid green;
      border-radius: 20%;
      background: linear-gradient(0.25turn, #85C1E9, #AF7AC5, #F9E79F);

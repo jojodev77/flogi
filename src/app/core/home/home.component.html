@@ -13,12 +13,14 @@ class="home__panier mat-elevation-z8"
 
       <mat-form-field 
       class="home ">
-        <input matInput (keyup)="applyFilter($event.target.value)" 
-        placeholder=" RECHERCHE "
-        class="filter mat-elevation-z8">
+      
+        <input matInput 
+          (keyup)="applyFilter($event.target.value)" 
+          placeholder=" RECHERCHE "
+          class="filter mat-elevation-z8">
       </mat-form-field>
       <section 
-      class="home__scroll mat-elevation-z8"> 
+       class=" mat-elevation-z8"> 
 
       <mat-progress-spinner
       *ngIf="run"
@@ -150,6 +152,10 @@ class="home__panier mat-elevation-z8"
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       
       </table>
+    <mat-paginator [length]="10"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator>
       <ng-template #tab>
           <ng-container>
           <span class="connexion"> Erreur de connexion internet -- Vérifier votre connexion</span>

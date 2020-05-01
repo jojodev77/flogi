@@ -1,6 +1,6 @@
 .home {
     margin-left: 30%;
-    overflow-y: hidden;
+    overflow-x: hidden;
     
     &__spinner{
         position: absolute;
@@ -33,6 +33,10 @@
     border: 2px solid mediumvioletred;
     background: linear-gradient(0.25turn, #85C1E9, #AF7AC5, #F9E79F);
     box-shadow: 7px 6px 15px greenyellow;
+}
+
+input {
+    text-align: center !important;
 }
 
 @media screen and (max-width: 950px) {
@@ -190,8 +194,8 @@
         font-size: 1.5vw;
     }
 .filter{
-    padding:20px;
-    width: 600px;
+    padding:9px;
+    text-align: center;
    border: 1px solid;
     text-align:center;
     color:red; 

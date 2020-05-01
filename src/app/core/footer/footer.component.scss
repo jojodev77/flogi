@@ -1,11 +1,15 @@
 .footer{
     background-image: url('../../../assets/fond.JPG');
-    width: 100%;
-&__title{
+    width: 100% !important;
+    min-width: 100% !important;
+    margin-left: 0% !important;
+    
+    &__title{
     text-align: center;
     font-family: fantasy;
     color: #AF7AC5;
     background-color: white;
+    min-width: 100% !important;
 }  
 &__droit{
     margin-left: 5%;

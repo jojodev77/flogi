@@ -17,7 +17,7 @@ import { Subscription, interval } from 'rxjs';
 import { Bijoux } from 'src/app/achat/models/bijoux.models';
 import { Router } from '@angular/router';
 import { ModalComponnentComponent } from 'src/app/ines/modal-componnent/modal-componnent.component';
-import { MatDialog, MatSnackBar, Sort, MatSort } from '@angular/material';
+import { MatDialog, MatSnackBar, Sort, MatSort, MatPaginator } from '@angular/material';
 
 
 
@@ -50,6 +50,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
   color = 'primary';
   mode = 'indeterminate';
   value = 50;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   constructor(
     private coreService: CoreService,
@@ -78,6 +79,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
     setTimeout(() => {
       this.controlNetworkData();
     }, 2000);
+    this.dataSource.paginator.firstPage();
   }
 
   ngAfterViewInit() {
