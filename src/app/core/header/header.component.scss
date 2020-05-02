@@ -2,6 +2,36 @@
     background-image: url('../../../assets/fond.JPG');
     background-size: cover;
 
+    &__titre{
+      text-align: center;
+      font-family: Bookman old style;
+      font-weight: bolder;
+      letter-spacing: 0.5vw;
+      z-index: 600;
+      border: 3px solid mediumvioletred;
+      background: linear-gradient(0.25turn, #85C1E9, #AF7AC5, #F9E79F);
+      box-shadow: 7px 6px 15px greenyellow;
+      font-size: 1.4vw;
+      font-weight: bolder;
+      opacity: 2;
+    }
+
+    &__sousTitre{
+      text-align: center;
+      font-family: Bookman old style;
+      font-weight: bolder;
+      letter-spacing: 0.5vw;
+      z-index: 600;
+      border: 3px solid mediumvioletred;
+      background: linear-gradient(0.25turn, #85C1E9, #AF7AC5, #F9E79F);
+      box-shadow: 7px 6px 15px greenyellow;
+    }
+
+    &__listButton{
+       margin-top: 5px;
+       
+    }
+
  &__button{
      text-align: center;
      border: 1px solid green;
