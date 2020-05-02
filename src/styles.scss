@@ -12,3 +12,8 @@ body { margin: 0;
 app-footer{
     min-height: calc(100% - 5px);
 }
+
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: .4375em 0;
+    text-align: center;
+}

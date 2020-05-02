@@ -35,8 +35,63 @@
     box-shadow: 7px 6px 15px greenyellow;
 }
 
+.header{
+
+    &--id{
+        width: 5%;
+    }
+    &--image{
+        width: 10%;
+    }
+    &--type{
+        width: 10%;
+    }
+    &--prix{
+        width: 5%;
+    }
+    &--type{
+        width: 10%;
+    }
+    &--materiaux{
+        width: 10%;
+    }
+    &--information{
+        width: 15%;
+    }
+    &--stock{
+        width: 15%;
+    }
+}
+
+
+
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: .4375em 0;
+    text-align: center;
+}
+
+ .mat-form-field-label-wrapper {
+    position: absolute;
+    left: 0;
+    box-sizing: content-box;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    text-align: center !important;
+    color: black !important;
+    opacity: 2;
+}
+
 input {
     text-align: center !important;
+    color: white;
+}
+
+ ::ng-deep placeholder{
+    text-align: center !important;
+    color: white;
+    opacity: 2;
 }
 
 @media screen and (max-width: 950px) {
@@ -108,35 +163,38 @@ input {
     width: 100px;
 }
 &__id {
-    width: 70px;
+    width: 9%;
     text-align: center;
     font-family: Bookman old style;
     letter-spacing: 0.2vw;
     font-weight: bolder;
 }
 &__image {
-    width: 130px;
+    width: 16%;
     text-align: center;
     font-weight: bolder;
     
 }
 &__type {
-    width: 130px;
+    width: 7%;
+    padding-left:2%;
     text-align: center;
     font-family: sans-serif;
     letter-spacing: 0.2vw;
     font-weight: bolder;
 }
 &__prix {
-    width: 130px;
+    width: 3%;
     padding-left:2%;
+    margin-right: 2%;
     font-family: sans-serif;
     letter-spacing: 0.2vw;
     text-align: center;
     font-weight: bolder;
 }
 &__materiaux {
-    width: 130px;
+    padding-left:2%;
+    width: 17%;
     height: 40px;
     text-align: center;
     margin-left: -160px;
@@ -147,7 +205,7 @@ input {
     font-weight: bolder;
 }
 &__information {
-    width: 130px;
+    width:20%;
     height: 40px;
     text-align: center;
     font-family: sans-serif;
@@ -155,7 +213,7 @@ input {
     font-weight: bolder;
 }
 &__stock {
-    width: 130px;
+    width: 5%;
     height: 40px;
     text-align: center;
     font-family: sans-serif;
@@ -199,8 +257,7 @@ input {
    border: 1px solid;
     text-align:center;
     color:red; 
-    background: linear-gradient(0.25turn, #85C1E9, #AF7AC5, #F9E79F);
-    background-color:mediumvioletred;
+    background-color: white;
     animation: allblink 2s infinite;
 }
 

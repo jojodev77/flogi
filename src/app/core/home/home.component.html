@@ -61,8 +61,8 @@ class="home__badge">
        <ng-container matColumnDef="id" 
        pageScroll >
          <th mat-header-cell *matHeaderCellDef mat-sort-header
-         class="home__id">
-            Id.
+         class="header--id">
+           
            </th>
          <td mat-cell *matCellDef="let element" 
          class="home__id">
@@ -78,7 +78,7 @@ class="home__badge">
          > Image.
          </th>
           <td mat-cell *matCellDef="let element"
-          class="image mat-elevation-z8">
+          class="home__image mat-elevation-z8">
             <img src="{{element.image}}"
             class="home__img" >
            </td>
@@ -103,7 +103,7 @@ class="home__badge">
           class="home__prix">
            Prix 
         </th>
-          <td mat-cell *matCellDef="let element"
+          <td mat-cell *matCellDef="let element" class="home__prix"
           > 
           {{element.prix}} € 
         </td>
