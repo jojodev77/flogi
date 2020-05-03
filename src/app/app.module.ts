@@ -17,12 +17,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { InformationModule } from './information/information.module';
 import { CreateFormulaireService } from './user/administator/create/create-service/create-formulaire.service';
+import { DialogComponent } from './dialogUser/dialog/dialog.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,7 @@ import { CreateFormulaireService } from './user/administator/create/create-servi
     InformationModule
   ],
   providers: [CreateFormulaireService],
+  entryComponents: [DialogComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent]
 })

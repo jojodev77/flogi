@@ -20,6 +20,8 @@ import { MatDialog, MatSnackBar, Sort, MatSort, MatPaginator } from '@angular/ma
 import { FormGroup } from '@angular/forms';
 import { CoreFormulaireService } from '../core-formulaire.service';
 import { startWith, map, tap } from 'rxjs/operators';
+import { DialogService } from 'src/app/dialogUser/services/dialog.service';
+import { AlertType } from 'src/app/dialogUser/models/dialog.model';
 
 
 
@@ -58,7 +60,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
   filteredType: Observable<any[]>;
   dataSubscription: Subscription;
   Type = [
-    { value: 1, viewValue : 'liste complête' },
+    { value: 1, viewValue : 'Liste complète' },
     { value: 2, viewValue : 'Pendentifs' },
     { value: 3, viewValue : 'Bracelets' },
     { value: 4, viewValue : 'Boucles' },
@@ -78,26 +80,16 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
     private achatService: AchatService,
     private router: Router,
     private injector: Injector,
-    private coreFormulaireService: CoreFormulaireService
+    private coreFormulaireService: CoreFormulaireService,
+    private dialogService: DialogService
   ) {
     this.homeForm = this.coreFormulaireService.builForm();
     this.dialog = this.injector.get(MatDialog);
   }
 
   ngOnInit() {
+    this.loadDataOfBijoux();
     this.homeForm = this.coreFormulaireService.builForm();
-    this.coreService.getBijouxOfSql().subscribe(
-      (data: Bijoux[]) => {
-        this.dataSource.data = data;
-        this.bijoux = data;
-        this.getBijoux = data;
-        // tslint:disable-next-line:prefer-for-of
-        this.sortedData = this.dataSource.data.slice();
-        if (this.dataSource.data.length > 0) {
-          this.run = false;
-        }
-      }
-    );
     this.dataSource.sort = this.sort;
     // tslint:disable-next-line:no-unused-expression
     this.dataSource.paginator = this.paginator;
@@ -130,12 +122,27 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
 
   }
 
+  loadDataOfBijoux() {
+    this.coreService.getBijouxOfSql().subscribe(
+      (data: Bijoux[]) => {
+        this.dataSource.data = data;
+        this.bijoux = data;
+        this.getBijoux = data;
+        // tslint:disable-next-line:prefer-for-of
+        this.sortedData = this.dataSource.data.slice();
+        if (this.dataSource.data.length > 0) {
+          this.run = false;
+        }
+      }
+    );
+  }
+
   controlNetworkData() {
     if (this.dataSource.data.length < 1) {
       for (let index = 0; index < 2; index++) {
         const elements = index;
         if (elements < 1) {
-          alert('PROBLEME DE CONNEXION INTERNET, RECHARGEMENT AUTOMATIQUE EN COURS');
+          this.dialogService.openAlertModal( 'PROBLEME DE CONNEXION INTERNET, RECHARGEMENT AUTOMATIQUE EN COURS', AlertType.WARNING);
           location.reload();
         }
       }
@@ -165,12 +172,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
       data => { this.bijoux = data; }
     );
     this.articleNumber = this.bijoux.length;
-    // this.messageService.openModalSuccesAddPanier();
-    // this.messageService.dialogRef.beforeClosed().subscribe(result => {
-    //   if (result === 'succes-postCharge') {
-    //     this.router.navigate(['/']);
-    //   }
-    // });
+    this.dialogService.openAlertModal( 'AJOUT CONFIRMER', AlertType.INFO);
+    this.router.navigate(['/']);
   }
   openSnackBar() {
     // tslint:disable-next-line: no-use-before-declare
@@ -183,8 +186,9 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
   }
 
   dataResult(element: string) {
-    if (element === 'liste complête') {
-      this.dataSource.data = this.bijoux;
+    if (element === 'Liste complète') {
+      this.loadDataOfBijoux();
+      this.router.navigate(['/']);
     } else {
      const cer = this.dataSource.data;
      cer.filter(data => {data.type = element; }

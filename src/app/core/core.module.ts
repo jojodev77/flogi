@@ -17,6 +17,7 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CoreFormulaireService } from './core-formulaire.service';
+import { DialogComponent } from '../dialogUser/dialog/dialog.component';
 
 @NgModule({
   declarations: [HomeComponent, HeaderComponent, FooterComponent],
@@ -33,6 +34,7 @@ import { CoreFormulaireService } from './core-formulaire.service';
     FooterComponent,
     AngularMaterialModule
   ],
+  entryComponents: [DialogComponent],
   providers: [CoreFormulaireService],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
