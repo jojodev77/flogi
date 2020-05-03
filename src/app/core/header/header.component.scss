@@ -9,11 +9,10 @@
       letter-spacing: 0.5vw;
       z-index: 600;
       border: 3px solid mediumvioletred;
-      background: linear-gradient(0.25turn, #85C1E9, #AF7AC5, #F9E79F);
-      box-shadow: 7px 6px 15px greenyellow;
+      background: linear-gradient(0.25turn, #85C1E9, #F9E79F, #F9E79F);
+      color: green;
       font-size: 1.4vw;
-      font-weight: bolder;
-      opacity: 2;
+      box-shadow: 7px 6px 15px greenyellow;
     }
 
     &__sousTitre{
@@ -23,7 +22,8 @@
       letter-spacing: 0.5vw;
       z-index: 600;
       border: 3px solid mediumvioletred;
-      background: linear-gradient(0.25turn, #85C1E9, #AF7AC5, #F9E79F);
+      background: linear-gradient(0.25turn, #85C1E9, #F9E79F, #F9E79F);
+      color: green;
       box-shadow: 7px 6px 15px greenyellow;
     }
 
