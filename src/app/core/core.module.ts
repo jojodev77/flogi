@@ -15,6 +15,8 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
 
 /* Service */
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CoreFormulaireService } from './core-formulaire.service';
 
 @NgModule({
   declarations: [HomeComponent, HeaderComponent, FooterComponent],
@@ -22,7 +24,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     CommonModule,
     AngularMaterialModule,
     NgxPageScrollModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ReactiveFormsModule
   ],
   exports: [
     HeaderComponent,
@@ -30,6 +33,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     FooterComponent,
     AngularMaterialModule
   ],
+  providers: [CoreFormulaireService],
 
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })

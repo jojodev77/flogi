@@ -11,12 +11,15 @@ import { ServicesService } from 'src/app/user/administrator/update-del-service/s
 
 
 /* RXJS */
-import { Subscription, interval } from 'rxjs';
+import { Subscription, interval, Observable } from 'rxjs';
 
 /* Model */
 import { Bijoux } from 'src/app/achat/models/bijoux.models';
 import { Router } from '@angular/router';
 import { MatDialog, MatSnackBar, Sort, MatSort, MatPaginator } from '@angular/material';
+import { FormGroup } from '@angular/forms';
+import { CoreFormulaireService } from '../core-formulaire.service';
+import { startWith, map, tap } from 'rxjs/operators';
 
 
 
@@ -33,11 +36,11 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
   /* Model */
   displayedColumns: string[] = ['acheter', 'id', 'image', 'type', 'prix', 'materiaux', 'information', 'stock'];
   dataSource = new MatTableDataSource<Bijoux>();
-  getBijoux: Bijoux[];
+  getBijoux: Bijoux[] = [];
   articleNumber: any;
   arrayArticleNumber = Array<Bijoux>();
   articleNumber$ = Subscription;
-  bijoux: Bijoux[];
+  bijoux: Bijoux[] = [];
   durationInSeconds = 5;
   private dialog;
   sortedData: Bijoux[];
@@ -50,28 +53,51 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
   mode = 'indeterminate';
   value = 50;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  homeForm: FormGroup;
+  type: string[] = [];
+  filteredType: Observable<any[]>;
+  dataSubscription: Subscription;
+  Type = [
+    { value: 1, viewValue : 'liste complête' },
+    { value: 2, viewValue : 'Pendentifs' },
+    { value: 3, viewValue : 'Bracelets' },
+    { value: 4, viewValue : 'Boucles' },
+    { value: 5, viewValue : 'Colliers' },
+    { value: 6, viewValue : 'Broches' },
+    { value: 7, viewValue : 'Parures' },
+    { value: 8, viewValue : 'Bien-être' },
+    { value: 9, viewValue : 'Tour de cou' },
+    { value: 10, viewValue : 'Barrettes' },
+    { value: 11, viewValue : 'Clips d oreillers' },
+    { value: 12, viewValue : 'Porte clefs' },
+    { value: 12, viewValue : 'Bagues' },
+];
 
   constructor(
     private coreService: CoreService,
     private achatService: AchatService,
     private router: Router,
-    private snackBar: MatSnackBar,
     private injector: Injector,
+    private coreFormulaireService: CoreFormulaireService
   ) {
+    this.homeForm = this.coreFormulaireService.builForm();
     this.dialog = this.injector.get(MatDialog);
+  }
+
+  ngOnInit() {
+    this.homeForm = this.coreFormulaireService.builForm();
     this.coreService.getBijouxOfSql().subscribe(
       (data: Bijoux[]) => {
         this.dataSource.data = data;
+        this.bijoux = data;
+        this.getBijoux = data;
+        // tslint:disable-next-line:prefer-for-of
         this.sortedData = this.dataSource.data.slice();
         if (this.dataSource.data.length > 0) {
           this.run = false;
         }
       }
     );
-
-  }
-
-  ngOnInit() {
     this.dataSource.sort = this.sort;
     // tslint:disable-next-line:no-unused-expression
     this.dataSource.paginator = this.paginator;
@@ -79,6 +105,15 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
     setTimeout(() => {
       this.controlNetworkData();
     }, 2000);
+    // tslint:disable-next-line:prefer-for-of
+    for (let index = 0; index < this.Type.length; index++) {
+      this.type.push(this.Type[index].viewValue);
+    }
+    this.filteredType = this.homeForm.get('filtre').valueChanges
+    .pipe(
+      startWith(''),
+      map(value => this._filterFiltre(value))
+    );
   }
 
   ngAfterViewInit() {
@@ -99,9 +134,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
     if (this.dataSource.data.length < 1) {
       for (let index = 0; index < 2; index++) {
         const elements = index;
-        console.log(elements);
         if (elements < 1) {
-          console.log('PROBLEME DE CONNEXION INTERNET');
+          alert('PROBLEME DE CONNEXION INTERNET, RECHARGEMENT AUTOMATIQUE EN COURS');
           location.reload();
         }
       }
@@ -142,8 +176,23 @@ export class HomeComponent implements OnInit, AfterViewInit, OnChanges, OnDestro
     // tslint:disable-next-line: no-use-before-declare
   }
 
-}
+  private _filterFiltre(value: string): any[] {
+  const filterValue = value.toLowerCase();
 
+  return this.type.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  dataResult(element: string) {
+    if (element === 'liste complête') {
+      this.dataSource.data = this.bijoux;
+    } else {
+     const cer = this.dataSource.data;
+     cer.filter(data => {data.type = element; }
+      );
+    }
+    }
+
+}
 function compare(a: number | string, b: number | string, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
