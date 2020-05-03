@@ -6,6 +6,8 @@ import { FormGroup } from '@angular/forms';
 import { CreateFormulaireService } from './create-service/create-formulaire.service';
 import { Bijoux } from 'src/app/achat/models/bijoux.models';
 import { UserService } from '../../service/user.service';
+import { DialogService } from 'src/app/dialogUser/services/dialog.service';
+import { AlertType } from 'src/app/dialogUser/dialog/dialog.component';
 
 
 @Component({
@@ -182,6 +184,7 @@ bjx = new Bijoux(null, '', '', '', '', '', '', '', '', null, '', '', null);
   constructor(
     private createBijouxFormulaire: CreateFormulaireService,
     private userService: UserService,
+    private dialogService: DialogService
   ) { }
 
   ngOnInit() {
@@ -197,10 +200,9 @@ this.userService.creat(result).subscribe(
         this.getBijoux = res;
 
         // Inform the user
-      //  this.messageService.openModalSuccessAjoutBijoux();
+        this.dialogService.openAlertModal( ' ENREGISTREMENT REUSSI', AlertType.INFO);
       },
-     // (err) => this.messageService.openModalErrorAjoutBijoux()
-    );
+      (err) =>  this.dialogService.openAlertModal( 'ECHEC DE L\' ENREGISTREMENT', AlertType.WARNING));
  }
 
 }

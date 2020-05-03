@@ -14,6 +14,8 @@ import { Bijoux } from 'src/app/achat/models/bijoux.models';
 /* RXJS */
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { DialogService } from 'src/app/dialogUser/services/dialog.service';
+import { AlertType } from 'src/app/dialogUser/dialog/dialog.component';
 
 
 @Component({
@@ -50,6 +52,7 @@ export class UpdateDelComponent implements OnInit {
     private updateService: ServicesService,
     private userService: UserService,
     private fb: FormBuilder,
+    private dialogService: DialogService
   ) {
   }
 
@@ -123,10 +126,9 @@ export class UpdateDelComponent implements OnInit {
         (res) => {
           this.getBijoux = res;
           this.success = 'Updated successfully';
-          // this.messageService.openModalSuccesUpdateBijoux();
+          this.dialogService.openAlertModal( 'MISE A JOUR REUSSI', AlertType.INFO);
         },
-        (err) => this.error = err
-      );
+        (err) => this.dialogService.openAlertModal( 'ECHEC DE LA MISE A JOUR', AlertType.WARNING));
   }
 
   deleteBijoux(id) {
@@ -137,10 +139,9 @@ export class UpdateDelComponent implements OnInit {
       .subscribe(
         (res: Bijoux[]) => {
           this.getBijoux = res;
-          // this.messageService.openModalSuccesDelBijoux();
+          this.dialogService.openAlertModal( 'SUPPRESSION REUSSI', AlertType.INFO);
         },
-        (err) => this.error = err
-      );
+        (err) => this.dialogService.openAlertModal( 'ECHEC DE LA SUPPRESSION', AlertType.WARNING));
   }
 }
 
