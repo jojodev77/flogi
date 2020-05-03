@@ -4,3 +4,11 @@ mat-icon {
   mat-divider {
     margin-top: 20px;
   }
+
+  .dialog{
+    border: 3px solid mediumvioletred;
+    background: linear-gradient(0.25turn, #85C1E9, #F9E79F, #F9E79F);
+    color: green;
+    text-align: center;
+    font-weight: bolder;
+  }
